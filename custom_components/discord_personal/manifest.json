@@ -1,0 +1,15 @@
+{
+  "domain": "discord_personal",
+  "name": "Discord Personal",
+  "codeowners": [
+    "@megabytemb"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/Megabytemb/ha-discord-personal",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Megabytemb/ha-discord-personal/issues",
+  "requirements": [
+    "discord.py>=2.2.3"
+  ],
+  "version": "0.0.0"
+}
