@@ -22,16 +22,14 @@ class DiscordClient(discord.Client):
         """Event handler for the client's 'ready' event."""
         _LOGGER.info(f"Logged in as {self.user} (ID: {self.user.id})")
         _LOGGER.info("------")
+        self.future_ready.set_result(True)
+        self._ready_fired = True
 
     def dispatch(self, event, *args, **kwargs):
         """Dispatch an event and call its associated event handlers."""
         super().dispatch(event, *args, **kwargs)
         _LOGGER.debug(f"Dispatching event {event}")
         method = "on_" + event
-
-        if event == "ready" and not self._ready_fired:
-            self.future_ready.set_result(True)
-            self._ready_fired = True
 
         for coro in self.event_handlers[event]:
             self._schedule_event(coro, method, *args, **kwargs)

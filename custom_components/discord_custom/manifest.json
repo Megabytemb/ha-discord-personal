@@ -1,6 +1,6 @@
 {
-  "domain": "discord_personal",
-  "name": "Discord Personal",
+  "domain": "discord_custom",
+  "name": "Discord Custom",
   "codeowners": [
     "@megabytemb"
   ],

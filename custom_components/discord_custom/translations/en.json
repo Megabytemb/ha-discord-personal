@@ -4,8 +4,10 @@
             "user": {
                 "description": "If you need help with the configuration have a look here: https://github.com/Megabytemb/ha-discord-personal",
                 "data": {
-                    "username": "Username",
-                    "password": "Password"
+                    "bot_token": "Bot Token",
+                    "user_id": "Discord User ID",
+                    "guild_id": "Discord Guild ID",
+                    "name": "Name"
                 }
             }
         },
