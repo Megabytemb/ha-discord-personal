@@ -4,6 +4,7 @@ from collections import defaultdict
 import logging
 
 import discord
+from discord.http import Route
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -38,3 +39,11 @@ class DiscordClient(discord.Client):
         """Bind an event to a coroutine as its event handler."""
 
         self.event_handlers[event].append(coro)
+
+    async def get_detectable_applications(self):
+        """Get apps from the API."""
+        r = Route(
+            "GET",
+            "/applications/detectable",
+        )
+        return await self.http.request(r)

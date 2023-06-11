@@ -93,3 +93,9 @@ class DiscordActivitySensor(DiscordEntity, SensorEntity):
             return ACTIVITY_ICON_MAP.get(activity.type, "mdi:pencil")
 
         return "mdi:sleep"
+
+    @property
+    def entity_picture(self) -> str | None:
+        """Return the entity picture to use in the frontend, if any."""
+        if activity := self.coordinator.data.activity:
+            return self.coordinator.async_get_icon_for_activity(activity)
