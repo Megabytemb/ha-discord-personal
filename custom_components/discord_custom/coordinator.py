@@ -76,6 +76,8 @@ class DiscordDataUpdateCoordinator(DataUpdateCoordinator):
 
         def get_icon_url(app):
             """Generate the URL for the app icon."""
+            if app.get("icon") is None:
+                return None
             return f"https://cdn.discordapp.com/app-icons/{app['id']}/{app['icon']}.png"
 
         if hasattr(activity, "application_id"):
